@@ -21,7 +21,7 @@ function App() {
         setLoading(true);
         setError(false);
         const response=await axios.get('/api/products?search='+search,{
-          signal: controller.signal//previous requests are thrown to catch so handle the error there
+          signal: controller.signal//previous requests are thrown to catch so handle the error there but it is done to manage the serial requests so that last given request's response is returned at last 
         })
         setProducts(response.data);
       } catch (error) {
